@@ -18,56 +18,55 @@ const quizData = [
 
 const roles = {
     "H-H-L": { 
-        name: "赫拉克勒斯", 
-        data: "高认同、高剥削、低疲劳",
+        code: "TOP", name: "赫拉克勒斯", data: "高认同、高剥削、低疲劳",
         history: "赫拉克勒斯以无穷的精力完成了十二项看似不可能的伟业，不知疲倦地克服一切艰难险阻。",
-        model: "纯血的成就主体。坚信个人的努力可以克服一切障碍，不知疲倦地打怪升级，沉浸在自我效能感爆棚的亢奋中，尚未意识到这种无限的任务其实是系统设置的无底洞。"
+        high: "你是时代的领跑者，拥有极高的效能感和执行力，是天生的破局者。",
+        low: "容易陷入“盲目优化”的怪圈，一旦停下就会产生强烈的戒断焦虑，丧失了“无用之美”的感受力。"
     },
     "H-H-H": { 
-        name: "普罗米修斯", 
-        data: "高认同、高剥削、高疲劳",
+        code: "SOS", name: "普罗米修斯", data: "高认同、高剥削、高疲劳",
         history: "普罗米修斯被锁在高加索山上，白天长出肝脏投入战斗，夜晚被恶鹰无情啃食。",
-        model: "崩塌中的成就主体。在拼命内卷与抑郁性瘫痪之间反复挣扎，极度渴望成功并疯狂压榨自己，但神经系统已经发出断电信号，呈现投入与放弃共存的病理特征。"
+        high: "你拥有英雄般的献身精神，为了目标不惜燃烧自己，这种生命力极其耀眼。",
+        low: "长期处于“自我战争”中，灵魂已发出了断电信号，若不停止自燃，崩塌就在眼前。"
     },
     "L-H-H": { 
-        name: "西西弗斯", 
-        data: "低认同、高剥削、高疲劳",
+        code: "NPC", name: "西西弗斯", data: "低认同、高剥削、高疲劳",
         history: "西西弗斯日复一日地将巨石推向山顶，又眼睁睁看着它滚落，进行着永无止境且毫无意义的劳作。",
-        model: "被动运转的系统齿轮。已经看透系统幻象，不再相信成功学，但迫于外部生存压力只能被动服从指令，在无意义的重复中走向精神和肉体的双重枯竭。"
+        high: "你拥有惊人的韧性，在无意义的荒诞中依然维持着生活的运转，你是现实主义的基石。",
+        low: "精神长期处于“空转”状态，容易滑向彻底的虚无主义，感觉自己只是系统的耗材。"
     },
     "L-L-L": { 
-        name: "第欧根尼", 
-        data: "低认同、低剥削、低疲劳",
+        code: "BAI", name: "第欧根尼", data: "低认同、低剥削、低疲劳",
         history: "第欧根尼常年住在一个木桶里，面对世俗最高权力与恩赐，他唯一的请求是让对方不要挡住自己的阳光。",
-        model: "主权完整的闲暇者。以极端但自洽的方式彻底拒绝了社会的成就评判体系，成功夺回了不做的自由，在竞争环境中既不卷也不焦虑，保持绝对的防御姿态。"
+        high: "你是主权完整的智者，看穿了消费主义和成就社会的陷阱，拥有他人渴望而不可得的松弛感。",
+        low: "过度防御可能导致与社会支持系统的彻底脱节，陷入孤独的自我封闭。"
     },
     "H-L-H": { 
-        name: "达摩克利斯", 
-        data: "高认同、低剥削、高疲劳",
+        code: "SAD", name: "达摩克利斯", data: "高认同、低剥削、高疲劳",
         history: "达摩克利斯的头顶始终悬挂着一把仅用一根马鬃拴着的锋利宝剑，时刻面临坠落的致命威胁。",
-        model: "深陷内耗的焦虑者。脑海中充满宏大目标和同辈压力，但在现实中迟迟无法推进行动。隐形的压力之剑让他们时刻处于极度恐慌中，最终导致未战先衰的彻底疲惫与瘫痪。"
+        high: "你对卓越有着极高的审美和追求，拥有丰富的内心世界和敏锐的危机感。",
+        low: "脑内的宏大叙事与现实的停滞形成了巨大的张力，让你在焦虑中先战先衰，陷入瘫痪。"
     },
     "H-L-L": { 
-        name: "墨菲斯", 
-        data: "高认同、低剥削、低疲劳",
+        code: "JOY", name: "墨菲斯", data: "高认同、低剥削、低疲劳",
         history: "墨菲斯作为古希腊的梦神，能够在睡眠中为人编织出无比真实且绚丽的梦境幻象。",
-        model: "活在期许中的无痛空想家。极度认同成功叙事并在脑海中构筑了宏伟蓝图，但没有真正开启自我榨取。缺乏真实的行动摩擦使得他们屏蔽了系统的压力反馈，沉浸在完美的幻梦中且未体验到神经枯竭。"
+        high: "你是天生的创意家，在荒凉的现实中能为自己构建出瑰丽的蓝图，灵魂从未被现实磨损。",
+        low: "由于缺乏现实的“摩擦力”，你的理想容易变成毫无根基的泡影，无法产生真正的生命厚度。"
     },
     "L-L-H": { 
-        name: "拉奥孔", 
-        data: "低认同、低剥削、高疲劳",
+        code: "TOX", name: "拉奥孔", data: "低认同、低剥削、高疲劳",
         history: "拉奥孔看穿了木马计却拒绝参与狂欢，最终被神明派出的两条巨蛇紧紧缠绕并活活绞死。",
-        model: "因环境毒性而窒息的清醒者。看透内卷且拒绝参与，但置身于疯狂竞争和焦虑蔓延的集体环境中，系统性的压迫感如巨蛇般勒紧了他们，带来了严重的替代性精神耗竭。"
+        high: "你拥有极强的共情力和清醒的洞察力，能敏锐感知环境的不合理，你是集体的“预警机”。",
+        low: "过度敏感让你吸收了过多的环境毒性，他人的卷和焦会在你身上产生“替代性疲劳”。"
     },
     "L-H-L": { 
-        name: "远航的奥德修斯", 
-        data: "低认同、高剥削、低疲劳",
+        code: "PRO", name: "远航的奥德修斯", data: "低认同、高剥削、低疲劳",
         history: "奥德修斯凭借极其务实和狡黠的生存智慧，在各种险境和神明怒火中周旋，最终保持理智回到故乡。",
-        model: "抽离情感的实用主义玩家。不相信宏大叙事，仅把现实看作一场必须通关的游戏。投入极高精力解决问题，但内心对这些外部标签保持绝对的冷感与抽离，从而在高强度运转下免于精神崩塌。"
+        high: "你是极致的实用主义大师，总能以最小的代价绕过陷阱，拥有极强的生存智慧。",
+        low: "极度的抽离和冷感可能让你丧失对生命本真的体悟，生活逐渐变成了一场只有关卡、没有风景的游戏。"
     }
 };
 
-// 页面切换
 document.getElementById('start-btn').onclick = () => {
     document.getElementById('start-page').classList.remove('active');
     document.getElementById('quiz-page').classList.add('active');
@@ -111,42 +110,38 @@ document.getElementById('submit-btn').onclick = () => {
         const val = parseInt(ans.value);
         const w = quizData[qIdx].w;
         const factor = (val - 3) / 2;
-        
         finalScores.pi += w.pi * factor;
         finalScores.sei += w.sei * factor;
         finalScores.bd += w.bd * factor;
     });
-
     showResult(finalScores);
 };
 
 function showResult(scores) {
-    const PI_L = scores.pi > 0 ? "H" : "L";
-    const SEI_L = scores.sei > 0 ? "H" : "L";
-    const BD_L = scores.bd > 0 ? "H" : "L";
-    const key = `${PI_L}-${SEI_L}-${BD_L}`;
+    const key = `${scores.pi > 0 ? "H" : "L"}-${scores.sei > 0 ? "H" : "L"}-${scores.bd > 0 ? "H" : "L"}`;
     const role = roles[key];
 
     document.getElementById('quiz-page').classList.remove('active');
     document.getElementById('result-page').classList.add('active');
 
-    document.getElementById('role-tag').innerText = `${role.data} (${key})`;
+    document.getElementById('role-tag').innerText = `PBTI 类型：${role.code}`;
     document.getElementById('role-name').innerText = role.name;
+    document.getElementById('data-structure').innerText = role.data;
     document.getElementById('role-history').innerText = role.history;
-    document.getElementById('role-model').innerText = role.model;
+    document.getElementById('role-high').innerText = role.high;
+    document.getElementById('role-low').innerText = role.low;
 
-    // 发送数据 (Web3Forms)
-    sendData(role.name, key, scores);
+    sendData(role.name, role.code, scores);
 }
 
-function sendData(name, key, scores) {
+function sendData(name, code, scores) {
     fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
             access_key: "ab38a826-2811-46e5-9495-b660dd9bdc34",
-            subject: "新测试结果: " + name,
-            message: `人物: ${name}\n组合: ${key}\n得分: PI:${scores.pi.toFixed(1)}, SEI:${scores.sei.toFixed(1)}, BD:${scores.bd.toFixed(1)}`
+            subject: "PBTI结果: " + name,
+            message: `人物: ${name}\n代码: ${code}\n得分: PI:${scores.pi.toFixed(1)}, SEI:${scores.sei.toFixed(1)}, BD:${scores.bd.toFixed(1)}`
         })
     });
 }

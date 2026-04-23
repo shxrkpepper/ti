@@ -31,16 +31,21 @@
         <!-- 第三步：结果页面 -->
         <section id="result-page">
             <div class="result-card">
-                <div id="role-tag" class="role-tag">H-H-L</div>
+                <div id="role-tag" class="role-tag">TYPE CODE</div>
                 <h1 id="role-name">人物名称</h1>
+                <div id="data-structure" style="font-size: 0.85rem; color: #6b7280; margin-bottom: 20px;"></div>
                 <hr>
                 <div class="result-section">
                     <h3>【人物经历】</h3>
                     <p id="role-history"></p>
                 </div>
                 <div class="result-section">
-                    <h3>【性格模型】</h3>
-                    <p id="role-model"></p>
+                    <h3 class="high-title">【高光时刻】</h3>
+                    <p id="role-high"></p>
+                </div>
+                <div class="result-section">
+                    <h3 class="low-title">【至暗时刻】</h3>
+                    <p id="role-low"></p>
                 </div>
                 <button onclick="location.reload()" class="retry-btn">重新测试</button>
             </div>
