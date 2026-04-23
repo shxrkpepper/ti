@@ -79,6 +79,7 @@ function handleOptionClick(scores) {
 }
 
 // 5. 计算并展示最终结果的函数
+// 修改原有的计算结果函数
 function calculateFinalResult() {
   let finalType = "";
   
@@ -90,7 +91,33 @@ function calculateFinalResult() {
   // 在页面上显示最终结果
   questionTextEl.textContent = "测试完成！你的性格类型是：" + finalType;
   optionsAreaEl.innerHTML = "<p>请注意：这只是一个包含两道题的演示版本。</p>";
+
+  // 触发后台发送数据的指令
+  sendResultToEmail(finalType);
 }
 
 // 6. 启动整个程序（这是最关键的一步，负责消除“加载中...”）
 renderQuestion();
+
+// 新增的数据发送函数
+function sendResultToEmail(finalType) {
+  fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify({
+      // 请将下方引号内的文字替换为你邮件里收到的真实 Access Key
+      access_key: "ab38a826-2811-46e5-9495-b660dd9bdc34",
+      subject: "新的 MBTI 测试结果",
+      message: "有一位用户刚刚完成了测试，测出的性格类型是：" + finalType
+    })
+  })
+  .then(function(response) {
+    console.log("数据发送成功");
+  })
+  .catch(function(error) {
+    console.error("数据发送失败", error);
+  });
+}
