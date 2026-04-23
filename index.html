@@ -3,15 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MBTI 倾向测试</title>
+    <title>PBTI ：大学生精神图景调研</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="quiz-container">
-        <h2 id="question-text">加载中...</h2>
-        <div id="options-area"></div>
+    <div id="app">
+        <!-- 第一步：开始页面 -->
+        <section id="start-page" class="active">
+            <div class="glass-card">
+                <h1>PBTI</h1>
+                <p class="subtitle">探寻你的古希腊神话原型</p>
+                <div class="intro-text">
+                    <p>在这场关于“成就”、“剥削”与“疲惫”的调研中，我们将通过 15 个生活切片，映射出你潜意识中的生存姿态。</p>
+                </div>
+                <button id="start-btn" class="main-btn">开启测试</button>
+            </div>
+        </section>
+
+        <!-- 第二步：答题页面 -->
+        <section id="quiz-page">
+            <div id="questions-list"></div>
+            <div class="footer">
+                <button id="submit-btn" class="main-btn">提交并查看结果</button>
+            </div>
+        </section>
+
+        <!-- 第三步：结果页面 -->
+        <section id="result-page">
+            <div class="result-card">
+                <div id="role-tag" class="role-tag">H-H-L</div>
+                <h1 id="role-name">人物名称</h1>
+                <hr>
+                <div class="result-section">
+                    <h3>【人物经历】</h3>
+                    <p id="role-history"></p>
+                </div>
+                <div class="result-section">
+                    <h3>【性格模型】</h3>
+                    <p id="role-model"></p>
+                </div>
+                <button onclick="location.reload()" class="retry-btn">重新测试</button>
+            </div>
+        </section>
     </div>
-    
+
     <script src="script.js"></script>
 </body>
 </html>

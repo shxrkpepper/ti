@@ -1,33 +1,110 @@
+:root {
+    --primary: #6366f1;
+    --bg: #f3f4f6;
+    --card: #ffffff;
+    --agree: #2d9d78;
+    --disagree: #be4b49;
+}
+
 body {
-    font-family: sans-serif;
-    background-color: #f3f4f6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg);
+    color: #1f2937;
+    margin: 0;
     display: flex;
     justify-content: center;
-    padding-top: 50px;
 }
 
-#quiz-container {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+#app {
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
+    min-height: 100vh;
+    padding: 20px;
 }
 
-button {
+section { display: none; }
+section.active { display: block; animation: fadeIn 0.5s ease; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* 卡片样式 */
+.glass-card, .result-card {
+    background: var(--card);
+    padding: 40px 30px;
+    border-radius: 24px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1 { color: var(--primary); margin-bottom: 8px; }
+.subtitle { color: #6b7280; margin-bottom: 30px; }
+
+/* 题目列表 */
+.question-item {
+    background: var(--card);
+    padding: 25px;
+    border-radius: 16px;
+    margin-bottom: 15px;
+}
+
+.q-text { font-weight: 600; margin-bottom: 20px; font-size: 1.05rem; }
+
+/* MBTI 圆圈选项 */
+.likert-scale {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.options-group {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.scale-label { font-size: 0.85rem; font-weight: bold; width: 50px; }
+.disagree { color: var(--disagree); text-align: left; }
+.agree { color: var(--agree); text-align: right; }
+
+.circle-btn input { display: none; }
+.circle-btn span {
     display: block;
-    width: 100%;
-    margin-top: 10px;
-    padding: 12px;
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-radius: 6px;
+    border: 2px solid #d1d5db;
+    border-radius: 50%;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.2s;
+    transition: all 0.2s;
 }
 
-button:hover {
-    background-color: #e2e6ea;
+/* 不同大小的圆圈 */
+.v1 span { width: 40px; height: 40px; border-color: var(--disagree); }
+.v2 span { width: 30px; height: 30px; border-color: var(--disagree); }
+.v3 span { width: 22px; height: 22px; border-color: #9ca3af; }
+.v4 span { width: 30px; height: 30px; border-color: var(--agree); }
+.v5 span { width: 40px; height: 40px; border-color: var(--agree); }
+
+.circle-btn input:checked + span { background: currentColor; }
+.v1 input:checked + span, .v2 input:checked + span { background: var(--disagree); }
+.v3 input:checked + span { background: #9ca3af; }
+.v4 input:checked + span, .v5 input:checked + span { background: var(--agree); }
+
+/* 按钮 */
+.main-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
+.main-btn:hover { transform: scale(1.05); }
+
+/* 结果页细项 */
+.result-section { text-align: left; margin: 25px 0; }
+.result-section h3 { font-size: 1rem; color: var(--primary); margin-bottom: 8px; }
+.result-section p { line-height: 1.7; color: #4b5563; font-size: 0.95rem; }
+.role-tag { font-size: 0.8rem; color: #9ca3af; letter-spacing: 1px; }
+
+.footer { text-align: center; padding: 40px 0; }
